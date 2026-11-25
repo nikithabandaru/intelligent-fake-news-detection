@@ -1,0 +1,4 @@
+Model Name,Accuracy (%),Precision (%),Recall (%),F1-Score (%),Fake F1 (%),Real F1 (%),Training Time (s)
+Logistic Regression,99.1,99.1,99.1,99.1,99.13,99.06,0.422
+Multinomial Naive Bayes,95.91,95.91,95.91,95.91,96.07,95.72,0.033
+Passive Aggressive Classifier,99.64,99.64,99.64,99.64,99.66,99.63,0.211

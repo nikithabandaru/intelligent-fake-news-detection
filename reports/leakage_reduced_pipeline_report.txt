@@ -1,0 +1,19 @@
+Leakage‑Reduced TF‑IDF & Logistic Regression Pipeline Report
+========================================================
+
+Number of training records (after cleaning): 31007
+Number of test records (after cleaning): 7752
+Vocabulary size (vectorizer): 50000
+--- Evaluation on regenerated test set ---
+Accuracy: 0.9834
+Precision (Fake class): 0.9897
+Recall (Fake class): 0.9739
+F1‑score (Fake class): 0.9818
+Confusion Matrix:
+[[3474   93]
+ [  36 4149]]
+
+--- Verification ---
+Test matrix shape match: True
+Test matrix values identical: True
+Model n_features_in_ (50000) equals vocab size (50000): True

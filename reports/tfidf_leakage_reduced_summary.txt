@@ -1,0 +1,12 @@
+=== Normalized Text Missing/Empty Check ===
+Train records total: 31007
+Test records total: 7752
+Missing/empty in train: 0
+Missing/empty in test: 0
+
+=== TF‑IDF Vectorization Summary ===
+Training TF‑IDF shape: (31007, 50000)
+Testing TF‑IDF shape: (7752, 50000)
+Number of features (vocabulary size): 50000
+Training label distribution: {1: 16737, 0: 14270}
+Testing label distribution: {1: 4185, 0: 3567}

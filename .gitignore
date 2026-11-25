@@ -1,0 +1,48 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Frontend dependencies & builds
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+# SQLite databases (local development storage)
+*.sqlite3
+*.db
+backend/*.db
+
+# Environment variables
+.env
+.env.local
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+dataset/*.csv
+dataset/**/*.csv
+models/*.npz
+
+# Exclude datasets
+dataset/
+
+# Exclude unused model files
+models/*
+!models/final_corrected_logistic_regression.pkl
+!models/final_corrected_tfidf_vectorizer.pkl
+!models/.gitkeep

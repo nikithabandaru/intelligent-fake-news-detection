@@ -1,0 +1,46 @@
+================================================================================
+INTELLIGENT FAKE NEWS DETECTION: DATA LEAKAGE REDUCTION AUDIT REPORT
+================================================================================
+Generated Date: 2026-11-13
+Script        : notebooks/leakage_reduction.py
+Input Dataset : dataset/processed_news.csv
+Output Dataset: dataset/leakage_reduced_news.csv
+
+1. EXECUTIVE SUMMARY:
+   Following the Phase 3 reliability audit, this data engineering step addresses
+   the two primary vulnerabilities of the benchmark ISOT dataset:
+   a) Cross-split article duplication (which caused 21.25% test data memorization).
+   b) Publisher wire attribution shortcuts (where 99.20% of Real articles began
+      with Reuters wire tags, creating an artificial prediction shortcut).
+
+2. QUANTITATIVE METRICS:
+   - Original Total Records           : 44,898
+     * Original Fake News (0)         : 23,481 (52.11%)
+     * Original Real News (1)         : 21,417 (47.89%)
+   - Empty 'processed_text' Records   : 85
+   - Conflicting Label Groups         : 0 (0 label conflicts)
+   - Articles with Wire Tag Removed   : 21,096
+     * In Fake News (0)               : 2 (0.00%)
+     * In Real News (1)               : 21,094 (98.50%)
+   - Total Duplicates Removed         : 6,138
+   - Final Deduplicated Total Records : 38,760
+     * Final Fake News (0)            : 17,838 (46.02%)
+     * Final Real News (1)            : 20,922 (53.98%)
+
+3. METHODOLOGY:
+   a) Publisher Wire Attribution Removal:
+      Targeted prefix regex: ^\s*([A-Za-z0-9\s,./'\xa0-]{0,60}?\(\s*Reuters\s*\)\s*[-—–:]?\s*)
+      Strictly strips the opening dateline wire tag without modifying publisher
+      mentions inside the body text.
+   b) Deduplication:
+      Applied on 'normalized_text'. Keeps 1 unique record per article.
+   c) Data Preservation:
+      Original columns (title, text, subject, date, label, cleaned_text, processed_text)
+      are preserved. Added 'normalized_text' and 'attribution_removed' columns.
+
+4. CRITICAL MACHINE LEARNING TAKEAWAY:
+   While removing Reuters wire prefixes and deduplicating records significantly
+   reduces artificial shortcuts, it does not magically guarantee 100% real-world
+   generalization across arbitrary news domains. True real-world robustness
+   requires cross-domain validation and adversarial testing.
+================================================================================
